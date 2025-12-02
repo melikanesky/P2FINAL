@@ -1,4 +1,3 @@
-// Exportar todos los middlewares desde un solo punto
 export { errorHandler } from './errors/ErrorHandler.js';
 export { notFound } from './errors/notFound.js';
 export { asyncHandler } from './errors/AsyncHandler.js';
@@ -9,7 +8,7 @@ export {
     UnauthorizedError, 
     ForbiddenError,
     ValidationError 
-} from './errors/CustomError.js';
+} from './errors/customError.js';
 
 export { 
     validateRequest, 
@@ -18,13 +17,17 @@ export {
 } from './validations/validateRequest.js';
 
 export { 
-    sanitizeInput, 
-    preventNoSQLInjection 
-} from './validations/sanitize.js';
-
-export { 
     validateId, 
     validatePagination, 
     isValidEmail, 
     requireFields 
 } from './validations/commonValidations.js';
+
+export { 
+    sanitizeInput, 
+    preventNoSQLInjection 
+} from './sanitize.js'; 
+
+export { validateBodyCorredor } from './validatorCorredor.js';
+
+export { default as logger } from './logger.js';

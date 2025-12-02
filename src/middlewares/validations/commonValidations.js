@@ -1,6 +1,5 @@
-import { BadRequestError } from '../errors/CustomError.js';
+import { BadRequestError } from '../errors/customError.js';
 
-// Validar que el ID sea un número válido
 export const validateId = (req, res, next) => {
     const id = parseInt(req.params.id);
     
@@ -12,7 +11,6 @@ export const validateId = (req, res, next) => {
     next();
 };
 
-// Validar paginación
 export const validatePagination = (req, res, next) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
@@ -34,13 +32,11 @@ export const validatePagination = (req, res, next) => {
     next();
 };
 
-// Validar email
 export const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 };
 
-// Validar campos requeridos
 export const requireFields = (...fields) => {
     return (req, res, next) => {
         const missingFields = fields.filter(field => !req.body[field]);

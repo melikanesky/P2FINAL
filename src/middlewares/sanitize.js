@@ -1,11 +1,10 @@
-// Middleware para sanitizar inputs
+
 export const sanitizeInput = (req, res, next) => {
-    // Sanitizar body
+    
     if (req.body) {
         req.body = sanitizeObject(req.body);
     }
 
-    // Sanitizar query
     if (req.query) {
         req.query = sanitizeObject(req.query);
     }
@@ -13,7 +12,6 @@ export const sanitizeInput = (req, res, next) => {
     next();
 };
 
-// Función auxiliar para sanitizar objetos
 const sanitizeObject = (obj) => {
     const sanitized = {};
     
@@ -31,7 +29,6 @@ const sanitizeObject = (obj) => {
     return sanitized;
 };
 
-// Middleware para prevenir inyección NoSQL
 export const preventNoSQLInjection = (req, res, next) => {
     const checkForInjection = (obj) => {
         for (const key in obj) {
